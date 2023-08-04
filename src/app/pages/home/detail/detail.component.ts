@@ -33,7 +33,6 @@ export class DetailComponent implements OnInit, OnDestroy {
       .pipe(
         tap((res) => {
           this.post = res.find((x: Post) => x.id == this.postId);
-          console.log('post unico: ', this.post);
         })
       )
       .subscribe();
