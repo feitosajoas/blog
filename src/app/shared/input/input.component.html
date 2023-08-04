@@ -1,0 +1,17 @@
+<div *ngIf="isInput">
+  <div class="form-floating mb-4">
+    <input [type]="inputType" (focusout)="onTouchedCb($event)" class="form-control" [id]="inputId"
+      [placeholder]="placeholder" [ngClass]="cssClass" [(ngModel)]="value" [readonly]="!!isReadOnly">
+    <label [attr.for]="inputId">{{ labelName }}</label>
+    <app-error-message class="invalid-feedback" [label]="labelName.replace('*','')" [control]="control" />
+  </div>
+</div>
+
+<div *ngIf="!isInput">
+  <div class="form-floating mb-4">
+    <textarea class="form-control" (focusout)="onTouchedCb($event)" [ngClass]="cssClass" [(ngModel)]="value"
+      [id]="inputId" [placeholder]="placeholder"></textarea>
+    <label [attr.for]="inputId">{{ labelName }}</label>
+    <app-error-message class="invalid-feedback" [label]="labelName.replace('*','')" [control]="control" />
+  </div>
+</div>
